@@ -1,0 +1,25 @@
+{
+  "api": {
+    "infos": {
+      "title": "music-library",
+      "description": "store music for a user",
+      "contactEmail": "florian.charpentier67@gmail.com",
+      "license": "WTFPL",
+      "licenseUrl": "http://wtfpl.net"
+    },
+    "server": {
+      "host": "0.0.0.0",
+      "port": "8085",
+      "readTimeout": "15",
+      "writeTimeout": "15",
+      "idleTimeout": "60"
+    },
+    "db": {
+      "usernameKey": "DB_USER",
+      "passwordKey": "DB_PASSWORD",
+      "database": "music_library",
+      "host": "localhost",
+      "port": "3306"
+    }
+  }
+}
