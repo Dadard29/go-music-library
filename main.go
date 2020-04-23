@@ -16,7 +16,6 @@ import (
 // DB_USER, DB_PASSWORD
 // HOST_SUB
 func main() {
-
 	var routes = service.RouteMapping{
 		"/library": service.Route{
 			Description:   "manage library",
