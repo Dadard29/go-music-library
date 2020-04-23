@@ -6,6 +6,7 @@ import (
 	"github.com/Dadard29/go-api-utils/service"
 	"github.com/Dadard29/go-music-library/api"
 	"github.com/Dadard29/go-music-library/controllers"
+	"github.com/Dadard29/go-music-library/models"
 	"github.com/Dadard29/go-subscription-connector/subChecker"
 	"net/http"
 )
@@ -34,7 +35,9 @@ func main() {
 		api.Api.Logger.CheckErr(err)
 	}
 
-	api.Api.Database = database.NewConnector(c, true, nil)
+	api.Api.Database = database.NewConnector(c, true, []interface{}{
+		models.MusicEntity{},
+	})
 
 	controllers.Sc = subChecker.NewSubChecker(api.Api.Config.GetEnv("HOST_SUB"))
 
