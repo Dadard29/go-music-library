@@ -15,6 +15,12 @@ const (
 	apiName = "music-library"
 	accessTokenKey = "X-Access-Token"
 )
+
+const (
+	titleParam = "title"
+	artistParam = "artist"
+)
+
 func checkToken(token string, w http.ResponseWriter) bool {
 	msg, err := Sc.CheckToken(token, apiName)
 	if err != nil {

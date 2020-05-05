@@ -9,15 +9,11 @@ import (
 	"net/http"
 )
 
-const (
-	titleParam = "title"
-	artistParam = "artist"
-)
 
 // POST
 // Authorization: 	token
 // Params: 			None
-// Body: 			None
+// Body: 			models.MusicDto
 func LibraryPost(w http.ResponseWriter, r *http.Request) {
 	t := r.Header.Get(accessTokenKey)
 	if !checkToken(t, w) {
@@ -49,20 +45,6 @@ func LibraryPost(w http.ResponseWriter, r *http.Request) {
 	}
 
 	api.Api.BuildJsonResponse(true, msg, m, w)
-}
-
-
-// PUT
-// Authorization: 	token
-// Params: 			None
-// Body: 			None
-func LibraryPut(w http.ResponseWriter, r *http.Request) {
-	t := r.Header.Get(accessTokenKey)
-	if !checkToken(t, w) {
-		return
-	}
-
-	api.Api.BuildErrorResponse(http.StatusInternalServerError, "not implemented", w)
 }
 
 
@@ -100,7 +82,7 @@ func LibraryGet(w http.ResponseWriter, r *http.Request) {
 
 // DELETE
 // Authorization: 	token
-// Params: 			None
+// Params: 			titleParam, artistParam
 // Body: 			None
 func LibraryDelete(w http.ResponseWriter, r *http.Request) {
 	t := r.Header.Get(accessTokenKey)

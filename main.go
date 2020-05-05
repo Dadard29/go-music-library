@@ -25,6 +25,18 @@ func main() {
 				http.MethodDelete: controllers.LibraryDelete,
 			},
 		},
+		"/library/albums": service.Route{
+			Description:   "get albums list from library",
+			MethodMapping: service.MethodMapping{
+				http.MethodGet: controllers.LibraryAlbumsGet,
+			},
+		},
+		"/library/artists": service.Route{
+			Description:   "get artist list from library",
+			MethodMapping: service.MethodMapping{
+				http.MethodGet: controllers.LibraryArtistGet,
+			},
+		},
 	}
 
 	api.Api = API.NewAPI("music-library", "config/config.json", routes, true)
