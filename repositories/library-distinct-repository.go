@@ -17,14 +17,19 @@ func MusicListGet(token string) []models.MusicEntity {
 func AlbumListGet(token string) []models.MusicEntity {
 	var res = make([]models.MusicEntity, 0)
 	api.Api.Database.Orm.Table("music").Select("DISTINCT album").
-		Where(&models.MusicEntity{}).Scan(&res)
+		Where(&models.MusicEntity{
+		Token: token,
+	}).Scan(&res)
 
 	return res
 }
 
 func ArtistListGet(token string) []models.MusicEntity {
 	var res = make([]models.MusicEntity, 0)
-	api.Api.Database.Orm.Table("music").Select("DISTINCT artist").Scan(&res)
+	api.Api.Database.Orm.Table("music").Select("DISTINCT artist").
+		Where(&models.MusicEntity{
+		Token: token,
+	}).Scan(&res)
 
 	return res
 }

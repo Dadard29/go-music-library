@@ -1,13 +1,13 @@
 package models
 
 type AlbumDto struct {
-	AlbumName string
-	TitleList []string
-	Artist string
-	ImageUrl string
+	Name string `json:"name"`
+	TitleList []string `json:"title_list"`
+	Artist string `json:"artist"`
+	ImageUrl string `json:"image_url"`
 }
 
 type ArtistDto struct {
-	ArtistName string
-	AlbumList []AlbumDto
+	Name string `json:"name"`
+	AlbumList []AlbumDto `json:"album_list"`
 }

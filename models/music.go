@@ -32,6 +32,7 @@ func (m MusicParam) ToEntity() MusicEntity {
 }
 
 type MusicEntity struct {
+	Id int `gorm:"type:int:auto_increment;primary_key"`
 	Title       string `gorm:"type:varchar(70);index:title"`
 	Artist      string `gorm:"type:varchar(70);index:artist"`
 	Album       string `gorm:"type:varchar(70);index:album"`

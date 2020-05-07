@@ -27,7 +27,7 @@ func LibraryArtistManagerGet(token string) ([]models.ArtistDto, string, error) {
 		}
 
 		res = append(res, models.ArtistDto{
-			ArtistName: ar.Artist,
+			Name: ar.Artist,
 			AlbumList:  albumList,
 		})
 	}
@@ -61,7 +61,7 @@ func LibraryAlbumManagerGet(token string) ([]models.AlbumDto, string, error) {
 		}
 
 		res = append(res, models.AlbumDto{
-			AlbumName: a.Album,
+			Name: a.Album,
 			TitleList: titleList,
 			Artist:    artist,
 			ImageUrl:  imageUrl,

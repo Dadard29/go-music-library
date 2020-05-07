@@ -72,7 +72,7 @@ func LibraryGet(w http.ResponseWriter, r *http.Request) {
 	m, msg, err := managers.LibraryManagerGet(mp)
 	if err != nil {
 		logger.Error(err.Error())
-		api.Api.BuildErrorResponse(http.StatusInternalServerError, msg, w)
+		api.Api.BuildErrorResponse(http.StatusNotFound, msg, w)
 		return
 	}
 
